@@ -1,0 +1,17 @@
+<mapper namespace="com.vue.dao.UserMapper" >
+    <resultMap id="BaseResultMap" type="com.vue.domin.UserInfo" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="userName" property="userName" jdbcType="VARCHAR" />
+        <result column="passWord" property="passWord" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, userName, passWord
+    </sql>
+
+    <select id="getAll" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM users
+    </select>
+</mapper>
