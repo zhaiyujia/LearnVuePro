@@ -3,6 +3,8 @@ package com.vue.controller;
 import com.vue.controller.request.VueResult;
 import com.vue.domin.LoginDomin;
 import com.vue.domin.UserInfo;
+import com.vue.service.UserInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,14 +21,12 @@ import java.util.Map;
 @CrossOrigin
 public class VueProTestController {
 
+	@Autowired
+	UserInfoService userInfoService;
 
 	@PostMapping("/test")
-	public VueResult getTestMessage(@RequestBody UserInfo userInfo){
-		System.out.println(userInfo.toString());
-		VueResult result = new VueResult();
-		result.setErrCode(200);
-		result.setErrMsg("OK");
-		result.setData(userInfo);
+	public UserInfo getTestMessage(@RequestBody UserInfo userInfo){
+		UserInfo result = userInfoService.getUserInfo("1");
 		return result;
 	}
 
