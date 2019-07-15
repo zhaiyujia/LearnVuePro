@@ -30,5 +30,14 @@ public class VueProTestController {
 		return result;
 	}
 
+	@GetMapping("/users")
+	public Map getUsers(){
+		return userInfoService.getUsers();
+	}
 
+	@PostMapping("/delete")
+	public String deleteUser(@RequestBody Map params){
+		userInfoService.deleteUser(params.get("id").toString());
+		return "delete sucess";
+	}
 }
