@@ -17,7 +17,7 @@ import java.util.Map;
  * @instruction
  */
 @RestController
-@RequestMapping
+@RequestMapping("/api/mobile")
 @CrossOrigin
 public class VueProTestController {
 
